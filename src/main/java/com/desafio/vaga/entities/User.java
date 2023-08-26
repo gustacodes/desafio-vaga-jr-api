@@ -16,5 +16,6 @@ public class User {
     private String cpf;
     private String phone;
     private String learning;
+    private boolean status;
 
 }
