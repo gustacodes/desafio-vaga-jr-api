@@ -15,12 +15,13 @@
             <th>Status</th>
         </tr>
         <tr th:each="item : ${list}">
-            <td th:text="${item.name}"></td>
+            <td><a th:href="@{/colaborador/validar/{id}(id=${item.id})}">[[${item.name}]]</a></td>
             <td th:text="${item.status == true ? 'Validado' : 'Não validado'}"
                 th:classappend="${item.status == true ? 'status-valid' : 'status-invalid'}"></td>
         </tr>
 
     </table>
+    <h4><a th:href="@{/colaborador/registrar}">Registrar novo</a></h4>
 </div>
 </body>
 </html>

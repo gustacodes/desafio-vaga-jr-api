@@ -24,9 +24,21 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public User findById(Long id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.get();
+    }
+
     public User validation(Long id) {
         Optional<User> userValidation = userRepository.findById(id);
-        userValidation.get().setStatus(true);
+
+        if(userValidation.get().isStatus() == true) {
+            userValidation.get().setStatus(false);
+        } else {
+            userValidation.get().setStatus(true);
+        }
+
         return userRepository.save(userValidation.get());
     }
+
 }

@@ -2,8 +2,10 @@ package com.desafio.vaga.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,7 +19,7 @@ public class User {
     private String email;
     private String cpf;
     private String phone;
-    private String learning;
+    private List<String> learning;
     private boolean status;
     private LocalDateTime dateValidation;
 
