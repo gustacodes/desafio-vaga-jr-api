@@ -1,4 +1,4 @@
-package entities;
+package com.desafio.vaga.entities;
 
 import jakarta.persistence.*;
 import lombok.Data;
