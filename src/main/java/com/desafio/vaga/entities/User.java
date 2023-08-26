@@ -3,6 +3,8 @@ package com.desafio.vaga.entities;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Data
 @Table(name = "tb_user")
@@ -17,5 +19,6 @@ public class User {
     private String phone;
     private String learning;
     private boolean status;
+    private LocalDateTime dateValidation;
 
 }

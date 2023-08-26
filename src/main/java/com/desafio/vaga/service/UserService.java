@@ -24,7 +24,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public User validation(Long id, User user) {
+    public User validation(Long id) {
         Optional<User> userValidation = userRepository.findById(id);
         userValidation.get().setStatus(true);
         return userRepository.save(userValidation.get());
