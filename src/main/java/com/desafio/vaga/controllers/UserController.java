@@ -6,10 +6,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class UserController {
 
     private UserService userService;
@@ -18,15 +19,24 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/colaborador/registrar")
+    public String save() {
+        return "index";
+    }
+
     @PostMapping("/colaborador/registrar")
-    public ResponseEntity<User> save(@RequestBody User user) {
+    public ModelAndView save( User user) {
+        ModelAndView mv = new ModelAndView("index");
         user.setStatus(false);
-        return ResponseEntity.status(HttpStatus.CREATED).body(userService.save(user));
+        userService.save(user);
+        return new ModelAndView("redirect:/registros");
     }
 
     @GetMapping("/registros")
-    public ResponseEntity<List<User>> listAll() {
-        return ResponseEntity.ok().body(userService.listAll());
+    public ModelAndView listAll() {
+        ModelAndView mv = new ModelAndView("list");
+        mv.addObject("list", userService.listAll());
+        return mv;
     }
 
     @PutMapping("/colaborador/validar/{id}")
