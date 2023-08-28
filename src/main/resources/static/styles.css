@@ -40,3 +40,8 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.erro {
+    font-size: 11px;
+    color: red;
+}

@@ -21,7 +21,7 @@ public class UserService {
     }
 
     public List<User> listAll() {
-        return userRepository.findAll();
+        return userRepository.findAllOrderedByName();
     }
 
     public User findById(Long id) {

@@ -35,6 +35,7 @@ tr:hover {
 }
 
 .btn-validar, .btn-nao-validar {
+    display: flex;
     padding: 5px 10px;
     background-color: #007bff;
     color: #fff;
@@ -47,3 +48,12 @@ tr:hover {
 .btn-nao-validar {
     background-color: #dc3545;
 }
+
+.button-container {
+    display: flex; /* Use o modelo flex para alinhar os botões lado a lado */
+}
+
+.button-container form {
+    margin-right: 10px; /* Adicione um espaço entre os botões */
+}
+

@@ -21,14 +21,20 @@ public class UserController {
     }
 
     @GetMapping("/colaborador/registrar")
-    public String save() {
-        return "index";
+    public ModelAndView save() {
+        ModelAndView mv = new ModelAndView("index");
+        return mv;
     }
 
     @PostMapping("/colaborador/registrar")
     public ModelAndView save( User user) {
         ModelAndView mv = new ModelAndView("index");
         user.setStatus(false);
+        if(user.getLearning().size() > 3 || user.getLearning().size() < 1) {
+            mv.addObject("erro", "Escolha no máximo 3.");
+            return mv;
+        }
+
         userService.save(user);
         return new ModelAndView("redirect:/registros");
     }

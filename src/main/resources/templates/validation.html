@@ -25,17 +25,22 @@
             <td>[[${user.phone}]]</td>
             <td>[[${user.learning}]]</td>
             <td>
-                <form th:action="@{/colaborador/validar/{id}(id=${user.id})}" method="post">
-                    <input type="hidden" name="_method" value="post"/>
-                    <button type="submit" class="btn-validar">Validar</button>
-                </form>
 
-                <form th:action="@{/colaborador/validar/{id}(id=${user.id})}" method="post">
-                    <input type="hidden" name="_method" value="post"/>
-                    <button class="btn-nao-validar">Não Validar</button>
-                </form>
+                <div class="button-container">
+                    <form th:action="@{/colaborador/validar/{id}(id=${user.id})}" method="post">
+                        <input type="hidden" name="_method" value="post"/>
+                        <button type="submit" class="btn-validar">Validar</button>
+                    </form>
+
+                    <form th:action="@{/colaborador/validar/{id}(id=${user.id})}" method="post">
+                        <input type="hidden" name="_method" value="post"/>
+                        <button class="btn-nao-validar">Não Validar</button>
+                    </form>
+                </div>
 
             </td>
+
+            <td></td>
         </tr>
 
     </table>
