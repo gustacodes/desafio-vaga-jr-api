@@ -31,7 +31,7 @@ public class UserController {
         ModelAndView mv = new ModelAndView("index");
         user.setStatus(false);
         if(user.getLearning().size() > 3 || user.getLearning().size() < 1) {
-            mv.addObject("erro", "Escolha no máximo 3.");
+            mv.addObject("erro", "Escolha no mínimo 1 e no máximo 3.");
             return mv;
         }
 
